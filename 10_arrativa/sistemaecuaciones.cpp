@@ -25,7 +25,7 @@ void ecuacion(double ecua[N-1][N]){
 			if (f == 0){
 			printf("Cuanto vale N:");
 			scanf("%lf", &ecua[f][c]);
-	           	} 
+	           	}
 		}
 		if(f!=0) {
 		for ( int c=0 ; c<N ; c++){
@@ -41,14 +41,14 @@ void ecuacion(double ecua[N-1][N]){
 	printf("%6.2lf + %6.2lfy = %6.2lf ",ecua[1][0],ecua[1][1],ecua[1][2]);
 	printf("\n");
 }
-int main(){ 
-		
+int main(){
+
 	double  ecua[N-1][N],
 		factor,
 		x,
 		y,
 		res;
-	
+
 	ecuacion(ecua);
 	printf("\n");
 	printf("\n");
@@ -59,7 +59,7 @@ int main(){
 
 /*Normalizar la  primera fila obteniendo el 1 en la posicion que queremos dividiendo toda la fila por la posicion que queremos normalizar  */
 	factor=ecua[0][0];
-	for (int c=0 ; c<N ; c++){		
+	for (int c=0 ; c<N ; c++){
 		if(factor<0){
 			factor*=-1;
 			ecua[0][c] = ecua[0][c] / factor;}
@@ -67,7 +67,7 @@ int main(){
                         ecua[0][c] = ecua[0][c] / factor;
         }
 	factor = ecua[1][0];
-	
+
 	for (int c=0  ; c<N ; c++){
 		if(factor<0){
 			factor*=-1;
@@ -75,7 +75,7 @@ int main(){
                  else
                         ecua[1][c] = ecua[1][c] / factor;}
 
-	
+
 	mostrar(ecua);
 
 /*Normalizamos la segunda fila obteniendo 0 en la posicion que buscamos */
@@ -84,7 +84,7 @@ int main(){
 		if (ecua [1][0]>0.00000000000001)
 			ecua[1][c] = ecua[1][c] - ecua[0][c];
 
-       		else 
+       		else
 			ecua[1][c] = ecua[1][c] + ecua[0][c];}
 
 	mostrar(ecua);
@@ -99,8 +99,8 @@ int main(){
 
 /*Realizamos la operacion*/
 
-	x =  (res  - (ecua[1][2] * y ) ) / x ;	
-	
+	x =  (res  - (ecua[1][2] * y ) ) / x ;
+
 /*Mostramos el valor de x e y*/
 
 	printf("y:%6.2lf\n", ecua[1][2]);
@@ -108,5 +108,5 @@ int main(){
 
 
 return 0;
-	
+
 }
