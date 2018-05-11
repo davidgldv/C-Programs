@@ -52,14 +52,14 @@ int pop(Pila *pila) {
     }
     error = 0;
     pila->cima--;
-    DEBUG("%i\n",dato);
+    DEBUG("%i\n",pila->data[pila->cima]);
     return pila->data[pila->cima];
 }
 
 double sum(double op1, double op2) { return op1 + op2;  }
 double res(double op1, double op2) { return op1 - op2;  }
 double mul(double op1, double op2) { return op1 * op2;  }
-double div(double op1, double op2) { return op1 / op2;  }
+double div(double op1, double op2) { return op2 / op1;  }
 
 int main(){
 
@@ -98,13 +98,11 @@ int main(){
             }
         }
     }
-    printf("Resultados:\n");
-    for(int c=0 ; c<MAX-3 ; c++){
+    for(int c=0 ; c<MAX/2 ; c++){
         int sel = pop(&op);
         double res = catalogo[sel].op((double)pop(&datos),(double)pop(&datos));
-        printf("%s\n",catalogo[sel].nombre);
-        printf("->%c\n",res);
-
+        printf("%s\n",catalogo[sel].nombre);// Nos mostraria el nombre de la operacion
+        printf("Resultado=%lf\n",res);
 
     }
 
